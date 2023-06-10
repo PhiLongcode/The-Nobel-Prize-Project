@@ -1,0 +1,6 @@
+[submodule "FontEnd_sem1"]
+	path = FontEnd_sem1
+	url = https://github.com/baconbao123/FontEnd_sem1.git
+[submodule "BackEnd_sem1"]
+	path = BackEnd_sem1
+	url = https://github.com/baconbao123/BackEnd_sem1.git
