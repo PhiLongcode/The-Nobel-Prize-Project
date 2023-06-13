@@ -14,3 +14,5 @@ Phần back_end: chạy lệnh
 Phần font_end: chạy lệnh
         npm install 
 để install node modules
+
+5.  Nhớ dabas tên là project_sem1 nha
