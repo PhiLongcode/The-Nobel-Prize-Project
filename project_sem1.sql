@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2023 at 06:57 PM
+-- Generation Time: Jun 17, 2023 at 06:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `life_story` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `person_id` bigint(20) UNSIGNED NOT NULL,
+  `life` text NOT NULL,
   `childhood` text DEFAULT NULL,
   `education` text DEFAULT NULL,
   `experiment` text DEFAULT NULL,
@@ -42,14 +43,6 @@ CREATE TABLE `life_story` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `life_story`
---
-
-INSERT INTO `life_story` (`id`, `person_id`, `childhood`, `education`, `experiment`, `struggles`, `time_line`, `personalities`, `achievements_detail`, `quote`, `books`, `created_at`, `updated_at`) VALUES
-(1, 1, 'unlucky child', 'learn at Havert', 'fidsahfba', 'ewqeqw', 'fdasfafsa', 'fdsafsdafdsa', 'fdsafdsa', 'fdsafsda', 'fadsfdsa', NULL, NULL),
-(2, 2, 'fdsafad', 'fdasfdsafas', 'fdsafda', 'fdasfdsa', 'fdsafafdsf', 'fdsafsfds', 'fdafdsafsa', 'dfasfsa', 'fdsafsdf', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -66,13 +59,6 @@ CREATE TABLE `multiple_images` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `multiple_images`
---
-
-INSERT INTO `multiple_images` (`id`, `person_id`, `title`, `image_path`, `created_at`, `updated_at`) VALUES
-(1, 1, 'hehe', 'heheheh', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -87,14 +73,6 @@ CREATE TABLE `nobel_prizes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `nobel_prizes`
---
-
-INSERT INTO `nobel_prizes` (`id`, `nobel_year`, `nobel_name`, `created_at`, `updated_at`) VALUES
-(1, '2022', 'Physic', NULL, NULL),
-(2, '2022', 'Math', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -108,17 +86,10 @@ CREATE TABLE `persons` (
   `deathdate` date DEFAULT NULL,
   `gender` tinyint(1) DEFAULT NULL,
   `national` varchar(50) DEFAULT NULL,
+  `img` blob DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `persons`
---
-
-INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyen', '2004-06-15', '2023-06-15', 1, 'Viet Nam', NULL, NULL),
-(2, 'Long', '2004-06-17', '2023-06-17', 0, 'Laos', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,14 +105,6 @@ CREATE TABLE `person_nobel` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `person_nobel`
---
-
-INSERT INTO `person_nobel` (`person_id`, `nobel_id`, `motivation`, `nobel_share`, `created_at`, `updated_at`) VALUES
-(1, 1, 'sucess create db', NULL, NULL, NULL),
-(1, 2, 'ahihi do ngoc', '2', NULL, NULL);
 
 -- --------------------------------------------------------
 
