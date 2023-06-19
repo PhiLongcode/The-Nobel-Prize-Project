@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2023 at 06:37 PM
+-- Generation Time: Jun 19, 2023 at 08:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -40,6 +40,7 @@ CREATE TABLE `life_story` (
   `achievements_detail` text DEFAULT NULL,
   `quote` varchar(100) DEFAULT NULL,
   `books` varchar(100) DEFAULT NULL,
+  `status` varchar(10) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -98,8 +99,8 @@ CREATE TABLE `persons` (
 --
 
 CREATE TABLE `person_nobel` (
-  `person_id` bigint(20) NOT NULL,
-  `nobel_id` bigint(20) NOT NULL,
+  `person_id` bigint(20) UNSIGNED NOT NULL,
+  `nobel_id` bigint(20) UNSIGNED NOT NULL,
   `motivation` varchar(200) NOT NULL,
   `nobel_share` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
