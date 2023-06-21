@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 08:40 AM
+-- Generation Time: Jun 21, 2023 at 04:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `life_story` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `person_id` bigint(20) UNSIGNED NOT NULL,
-  `life` text NOT NULL,
+  `person_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `life` text DEFAULT NULL,
   `childhood` text DEFAULT NULL,
   `education` text DEFAULT NULL,
   `experiment` text DEFAULT NULL,
@@ -40,10 +40,17 @@ CREATE TABLE `life_story` (
   `achievements_detail` text DEFAULT NULL,
   `quote` varchar(100) DEFAULT NULL,
   `books` varchar(100) DEFAULT NULL,
-  `status` varchar(10) NOT NULL,
+  `status` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `life_story`
+--
+
+INSERT INTO `life_story` (`id`, `person_id`, `life`, `childhood`, `education`, `experiment`, `struggles`, `time_line`, `personalities`, `achievements_detail`, `quote`, `books`, `status`, `created_at`, `updated_at`) VALUES
+(8, NULL, 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng', 'tuoi tre dang gia boa nhieu', '', '2023-06-20 00:34:34', '2023-06-20 00:34:34');
 
 -- --------------------------------------------------------
 
@@ -70,6 +77,7 @@ CREATE TABLE `nobel_prizes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nobel_year` char(4) NOT NULL,
   `nobel_name` varchar(50) NOT NULL,
+  `status` varchar(20) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -85,12 +93,20 @@ CREATE TABLE `persons` (
   `name` varchar(50) NOT NULL,
   `birthdate` date NOT NULL,
   `deathdate` date DEFAULT NULL,
-  `gender` tinyint(1) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
   `national` varchar(50) DEFAULT NULL,
-  `img` blob DEFAULT NULL,
+  `img` text DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `persons`
+--
+
+INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `img`, `status`, `created_at`, `updated_at`) VALUES
+(59, 'cccc', '2023-06-02', NULL, NULL, 'Åland Islands', '1.png,2.png,3.png,4.png,5.png,6.png,bg1.jpg,bg1.webp,blog-1.jpg,blog-2.jpg', NULL, '2023-06-20 23:14:17', '2023-06-20 23:14:17');
 
 -- --------------------------------------------------------
 
@@ -101,11 +117,19 @@ CREATE TABLE `persons` (
 CREATE TABLE `person_nobel` (
   `person_id` bigint(20) UNSIGNED NOT NULL,
   `nobel_id` bigint(20) UNSIGNED NOT NULL,
-  `motivation` varchar(200) NOT NULL,
-  `nobel_share` text DEFAULT NULL,
+  `motivation` varchar(200) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `nobel_share` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `person_nobel`
+--
+
+INSERT INTO `person_nobel` (`person_id`, `nobel_id`, `motivation`, `status`, `nobel_share`, `created_at`, `updated_at`) VALUES
+(63, 4, NULL, NULL, 3, '2023-06-21 06:25:20', '2023-06-21 06:25:20');
 
 -- --------------------------------------------------------
 
@@ -171,7 +195,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `life_story`
 --
 ALTER TABLE `life_story`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `multiple_images`
@@ -183,13 +207,13 @@ ALTER TABLE `multiple_images`
 -- AUTO_INCREMENT for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Constraints for dumped tables
