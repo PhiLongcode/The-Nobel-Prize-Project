@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 04:25 PM
+-- Generation Time: Jun 23, 2023 at 01:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -45,13 +45,6 @@ CREATE TABLE `life_story` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `life_story`
---
-
-INSERT INTO `life_story` (`id`, `person_id`, `life`, `childhood`, `education`, `experiment`, `struggles`, `time_line`, `personalities`, `achievements_detail`, `quote`, `books`, `status`, `created_at`, `updated_at`) VALUES
-(8, NULL, 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng phương thức filter() để tạo ra một mảng mới bằng cách loại bỏ phần tử cần xoá.', 'Để xoá một phần tử trong một mảng và cập nhật lại state của React, bạn có thể sử dụng', 'tuoi tre dang gia boa nhieu', '', '2023-06-20 00:34:34', '2023-06-20 00:34:34');
-
 -- --------------------------------------------------------
 
 --
@@ -77,7 +70,7 @@ CREATE TABLE `nobel_prizes` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nobel_year` char(4) NOT NULL,
   `nobel_name` varchar(50) NOT NULL,
-  `status` varchar(20) DEFAULT NULL,
+  `status` varchar(20) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -96,17 +89,10 @@ CREATE TABLE `persons` (
   `gender` varchar(10) DEFAULT NULL,
   `national` varchar(50) DEFAULT NULL,
   `img` text DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
+  `status` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `persons`
---
-
-INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(59, 'cccc', '2023-06-02', NULL, NULL, 'Åland Islands', '1.png,2.png,3.png,4.png,5.png,6.png,bg1.jpg,bg1.webp,blog-1.jpg,blog-2.jpg', NULL, '2023-06-20 23:14:17', '2023-06-20 23:14:17');
 
 -- --------------------------------------------------------
 
@@ -118,18 +104,11 @@ CREATE TABLE `person_nobel` (
   `person_id` bigint(20) UNSIGNED NOT NULL,
   `nobel_id` bigint(20) UNSIGNED NOT NULL,
   `motivation` varchar(200) DEFAULT NULL,
-  `status` varchar(20) DEFAULT NULL,
-  `nobel_share` int(11) DEFAULT NULL,
+  `status` varchar(20) NOT NULL,
+  `nobel_share` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `person_nobel`
---
-
-INSERT INTO `person_nobel` (`person_id`, `nobel_id`, `motivation`, `status`, `nobel_share`, `created_at`, `updated_at`) VALUES
-(63, 4, NULL, NULL, 3, '2023-06-21 06:25:20', '2023-06-21 06:25:20');
 
 -- --------------------------------------------------------
 
@@ -167,7 +146,8 @@ ALTER TABLE `multiple_images`
 -- Indexes for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nobel_year` (`nobel_year`,`nobel_name`);
 
 --
 -- Indexes for table `persons`
@@ -179,7 +159,8 @@ ALTER TABLE `persons`
 -- Indexes for table `person_nobel`
 --
 ALTER TABLE `person_nobel`
-  ADD PRIMARY KEY (`person_id`,`nobel_id`);
+  ADD PRIMARY KEY (`person_id`,`nobel_id`),
+  ADD KEY `nobel_id` (`nobel_id`);
 
 --
 -- Indexes for table `users`
@@ -207,13 +188,13 @@ ALTER TABLE `multiple_images`
 -- AUTO_INCREMENT for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- Constraints for dumped tables
@@ -224,6 +205,18 @@ ALTER TABLE `persons`
 --
 ALTER TABLE `life_story`
   ADD CONSTRAINT `life_story_person_id_foreign` FOREIGN KEY (`person_id`) REFERENCES `persons` (`id`);
+
+--
+-- Constraints for table `persons`
+--
+ALTER TABLE `persons`
+  ADD CONSTRAINT `person_nobel` FOREIGN KEY (`id`) REFERENCES `person_nobel` (`person_id`);
+
+--
+-- Constraints for table `person_nobel`
+--
+ALTER TABLE `person_nobel`
+  ADD CONSTRAINT `person_nobel_ibfk_1` FOREIGN KEY (`nobel_id`) REFERENCES `nobel_prizes` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
