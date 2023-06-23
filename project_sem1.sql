@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 01:44 PM
+-- Generation Time: Jun 23, 2023 at 06:39 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -75,6 +75,15 @@ CREATE TABLE `nobel_prizes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `nobel_prizes`
+--
+
+INSERT INTO `nobel_prizes` (`id`, `nobel_year`, `nobel_name`, `status`, `created_at`, `updated_at`) VALUES
+(28, '2019', 'Physic Prize', 'active', '2023-06-23 09:19:10', '2023-06-23 09:19:10'),
+(37, '2019', 'Chemistry Prize', 'active', '2023-06-23 09:33:30', '2023-06-23 09:33:30'),
+(38, '2019', 'Literature Prize', 'active', '2023-06-23 09:37:02', '2023-06-23 09:37:02');
+
 -- --------------------------------------------------------
 
 --
@@ -93,6 +102,13 @@ CREATE TABLE `persons` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `persons`
+--
+
+INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `img`, `status`, `created_at`, `updated_at`) VALUES
+(121, 'Matthew Trương', '2023-06-08', NULL, 'male', 'Algeria', '1687536949_5692.png,1687536949_1219.png,1687536949_7828.png,1687536949_5692.png,1687536949_3963.png,1687536949_1483.png,1687536949_2710.png,1687536949_5121.jpg,1687536949_8303.webp,1687536949_5000.jpg', 'active', '2023-06-23 09:15:49', '2023-06-23 09:15:49');
 
 -- --------------------------------------------------------
 
@@ -188,13 +204,13 @@ ALTER TABLE `multiple_images`
 -- AUTO_INCREMENT for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- Constraints for dumped tables
@@ -207,16 +223,11 @@ ALTER TABLE `life_story`
   ADD CONSTRAINT `life_story_person_id_foreign` FOREIGN KEY (`person_id`) REFERENCES `persons` (`id`);
 
 --
--- Constraints for table `persons`
---
-ALTER TABLE `persons`
-  ADD CONSTRAINT `person_nobel` FOREIGN KEY (`id`) REFERENCES `person_nobel` (`person_id`);
-
---
 -- Constraints for table `person_nobel`
 --
 ALTER TABLE `person_nobel`
-  ADD CONSTRAINT `person_nobel_ibfk_1` FOREIGN KEY (`nobel_id`) REFERENCES `nobel_prizes` (`id`);
+  ADD CONSTRAINT `person_nobel_ibfk_1` FOREIGN KEY (`nobel_id`) REFERENCES `nobel_prizes` (`id`),
+  ADD CONSTRAINT `person_nobel_ibfk_2` FOREIGN KEY (`person_id`) REFERENCES `persons` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
