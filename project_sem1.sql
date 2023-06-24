@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 06:39 PM
+-- Generation Time: Jun 24, 2023 at 01:15 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -75,15 +75,6 @@ CREATE TABLE `nobel_prizes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `nobel_prizes`
---
-
-INSERT INTO `nobel_prizes` (`id`, `nobel_year`, `nobel_name`, `status`, `created_at`, `updated_at`) VALUES
-(28, '2019', 'Physic Prize', 'active', '2023-06-23 09:19:10', '2023-06-23 09:19:10'),
-(37, '2019', 'Chemistry Prize', 'active', '2023-06-23 09:33:30', '2023-06-23 09:33:30'),
-(38, '2019', 'Literature Prize', 'active', '2023-06-23 09:37:02', '2023-06-23 09:37:02');
-
 -- --------------------------------------------------------
 
 --
@@ -98,17 +89,11 @@ CREATE TABLE `persons` (
   `gender` varchar(10) DEFAULT NULL,
   `national` varchar(50) DEFAULT NULL,
   `img` text DEFAULT NULL,
+  `pdf` varchar(100) DEFAULT NULL,
   `status` varchar(50) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `persons`
---
-
-INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(121, 'Matthew Trương', '2023-06-08', NULL, 'male', 'Algeria', '1687536949_5692.png,1687536949_1219.png,1687536949_7828.png,1687536949_5692.png,1687536949_3963.png,1687536949_1483.png,1687536949_2710.png,1687536949_5121.jpg,1687536949_8303.webp,1687536949_5000.jpg', 'active', '2023-06-23 09:15:49', '2023-06-23 09:15:49');
 
 -- --------------------------------------------------------
 
@@ -192,7 +177,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `life_story`
 --
 ALTER TABLE `life_story`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `multiple_images`
@@ -210,7 +195,7 @@ ALTER TABLE `nobel_prizes`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- Constraints for dumped tables
