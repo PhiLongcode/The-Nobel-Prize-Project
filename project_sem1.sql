@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2023 at 01:15 PM
+-- Generation Time: Jun 25, 2023 at 10:08 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `project_sem1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `date_post` date NOT NULL,
+  `content` text NOT NULL,
+  `author` varchar(100) NOT NULL,
+  `status` varchar(100) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `date_post`, `content`, `author`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Nguyen', '2023-06-08', 'hello world', 'Nguyen', 'active', NULL, NULL),
+(2, 'Ngoc', '2023-06-08', 'hello world', 'Ngoc', 'active', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -131,6 +156,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `life_story`
 --
 ALTER TABLE `life_story`
@@ -174,6 +205,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `life_story`
 --
 ALTER TABLE `life_story`
@@ -195,7 +232,7 @@ ALTER TABLE `nobel_prizes`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
 
 --
 -- Constraints for dumped tables
