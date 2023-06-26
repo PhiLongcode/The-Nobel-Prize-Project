@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2023 at 10:08 AM
+-- Generation Time: Jun 26, 2023 at 08:20 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -30,21 +30,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
-  `date_post` date NOT NULL,
-  `content` text NOT NULL,
+  `content` text DEFAULT NULL,
   `author` varchar(100) NOT NULL,
+  `img` text DEFAULT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `blog`
---
-
-INSERT INTO `blog` (`id`, `title`, `date_post`, `content`, `author`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Nguyen', '2023-06-08', 'hello world', 'Nguyen', 'active', NULL, NULL),
-(2, 'Ngoc', '2023-06-08', 'hello world', 'Ngoc', 'active', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -66,21 +58,6 @@ CREATE TABLE `life_story` (
   `quote` varchar(100) DEFAULT NULL,
   `books` varchar(100) DEFAULT NULL,
   `status` varchar(100) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `multiple_images`
---
-
-CREATE TABLE `multiple_images` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `person_id` int(10) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `image_path` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -169,12 +146,6 @@ ALTER TABLE `life_story`
   ADD KEY `life_story_person_id_foreign` (`person_id`);
 
 --
--- Indexes for table `multiple_images`
---
-ALTER TABLE `multiple_images`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
@@ -208,19 +179,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `life_story`
 --
 ALTER TABLE `life_story`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `multiple_images`
---
-ALTER TABLE `multiple_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `nobel_prizes`
@@ -232,7 +197,7 @@ ALTER TABLE `nobel_prizes`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- Constraints for dumped tables
