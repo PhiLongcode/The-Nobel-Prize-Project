@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2023 at 08:20 AM
+-- Generation Time: Jun 26, 2023 at 01:57 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
-  `title` varchar(100) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
   `content` text DEFAULT NULL,
   `author` varchar(100) NOT NULL,
   `img` text DEFAULT NULL,
@@ -55,8 +55,8 @@ CREATE TABLE `life_story` (
   `time_line` text DEFAULT NULL,
   `personalities` text DEFAULT NULL,
   `achievements_detail` text DEFAULT NULL,
-  `quote` varchar(100) DEFAULT NULL,
-  `books` varchar(100) DEFAULT NULL,
+  `quote` varchar(200) DEFAULT NULL,
+  `books` text DEFAULT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -106,7 +106,7 @@ CREATE TABLE `persons` (
 CREATE TABLE `person_nobel` (
   `person_id` bigint(20) UNSIGNED NOT NULL,
   `nobel_id` bigint(20) UNSIGNED NOT NULL,
-  `motivation` varchar(200) DEFAULT NULL,
+  `motivation` text DEFAULT NULL,
   `status` varchar(20) NOT NULL,
   `nobel_share` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
