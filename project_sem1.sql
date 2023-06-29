@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2023 at 09:24 AM
+-- Generation Time: Jun 29, 2023 at 07:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -90,6 +90,7 @@ CREATE TABLE `persons` (
   `deathdate` date DEFAULT NULL,
   `gender` varchar(10) DEFAULT NULL,
   `national` varchar(50) DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
   `img` text DEFAULT NULL,
   `pdf` varchar(100) DEFAULT NULL,
   `status` varchar(50) NOT NULL,
@@ -198,13 +199,13 @@ ALTER TABLE `life_story`
 -- AUTO_INCREMENT for table `nobel_prizes`
 --
 ALTER TABLE `nobel_prizes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- Constraints for dumped tables
