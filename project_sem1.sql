@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2023 at 08:57 AM
+-- Generation Time: Jun 30, 2023 at 08:56 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -98,6 +98,13 @@ CREATE TABLE `persons` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `persons`
+--
+
+INSERT INTO `persons` (`id`, `name`, `birthdate`, `deathdate`, `gender`, `national`, `avatar`, `img`, `pdf`, `status`, `created_at`, `updated_at`) VALUES
+(169, 'nguyen', '2023-06-14', NULL, 'male', 'Åland Islands', '1688101727_4787.jpg', '1688101727_2829.jpg,1688101727_7926.jpg,1688101727_3818.jpg,1688101727_4792.jpg,1688101727_2179.jpg,1688101727_3104.png', NULL, 'disable', '2023-06-29 22:08:47', '2023-06-29 22:08:52');
 
 -- --------------------------------------------------------
 
