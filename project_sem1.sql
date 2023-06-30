@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2023 at 07:06 PM
+-- Generation Time: Jun 30, 2023 at 08:57 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.17
 
@@ -31,8 +31,9 @@ CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
   `title` varchar(200) DEFAULT NULL,
   `content` text DEFAULT NULL,
-  `author` varchar(100) NOT NULL,
+  `author` varchar(100) DEFAULT NULL,
   `img` text DEFAULT NULL,
+  `avatar` text DEFAULT NULL,
   `status` varchar(100) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -187,7 +188,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `life_story`
@@ -205,7 +206,7 @@ ALTER TABLE `nobel_prizes`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
 
 --
 -- Constraints for dumped tables
